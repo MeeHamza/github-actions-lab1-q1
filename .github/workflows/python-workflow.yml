@@ -1,23 +1,23 @@
 name: CI
 
 on:
-  push:  
+  push:    # triggers on any branch push
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Python 3.11
-      uses: actions/setup-python@v5
-      with:
-        python-version: 3.11
+      # ✅ Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
 
+      # Step 2: Set up Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11
 
-
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
-
-
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: pip install -r requirements.txt
