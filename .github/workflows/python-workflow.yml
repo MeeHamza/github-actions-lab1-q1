@@ -1,15 +1,15 @@
 name: CI
 
 on:
-  push:    # triggers on any branch push
+  push:    # Trigger workflow on any push to any branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # ✅ Step 1: Checkout code
-      - name: Checkout code
+      # ✅ First step MUST be checkout with a name
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       # Step 2: Set up Python
